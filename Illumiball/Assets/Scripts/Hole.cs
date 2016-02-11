@@ -2,18 +2,27 @@
 using System.Collections;
 
 public class Hole : MonoBehaviour {
+	bool fallIn;
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
-
+	// どのボールを吸い寄せるかをタグで指定
 	public string activeTag;
+
+	// ボールが入っているか返す
+	public bool IsFallIn() {
+		return (fallIn);
+	}
+
+	void OnTriggerEnter(Collider other) {
+		if (other.gameObject.tag == activeTag) {
+			fallIn = true;
+		}
+	}
+
+	void OnTriggerExit(Collider other) {
+		if (other.gameObject.tag == activeTag) {
+			fallIn = false;
+		}
+	}
 
 	void OnTriggerStay ( Collider other ){
 		// コライダに触れているオブジェクトのRigitbodyコンポーネントを取得

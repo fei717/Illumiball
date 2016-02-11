@@ -8,11 +8,6 @@ public class GravityController : MonoBehaviour {
 	// 重力の適用具合
 	public float gravityScale = 1.0f;
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
 	// Update is called once per frame
 	void Update () {
 		Vector3 vector = new Vector3 ();
